@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>good-fast-cheap</title>
+</head>
+<body>
+<input type="range" id="good" min="0" max="5" onclick="changeGood()"><br>
+<input type="range" id="cheap" min="0" max="5" onclick="changeCheap()"><br>
+<input type="range" id="fast" min="0" max="5" onclick="changeFast()"><br>
+<script>
+    let good = false;
+    let cheap = false;
+    let fast = false;
+
+    function changeGood() {
+        good = !good;
+        if (good) {
+            document.getElementById('good').value = 5;
+            if (cheap && fast) {
+                document.getElementById('fast').value = 0;
+                fast = false;
+            }
+        } else {
+            document.getElementById('good').value = 0;
+        }
+    }
+
+    function changeCheap() {
+        cheap = !cheap;
+        if (cheap) {
+            document.getElementById('cheap').value = 5;
+            if (good && cheap) {
+                document.getElementById('good').value = 0;
+                good = false;
+            }
+        } else {
+            document.getElementById('cheap').value = 0;
+        }
+    }
+
+    function changeFast() {
+        fast = !fast;
+        if (fast) {
+            document.getElementById('fast').value = 5;
+            if (good && cheap) {
+                document.getElementById('good').value = 0;
+                cheap = false;
+            }
+        } else {
+            document.getElementById('fast').value = 0;
+        }
+    }
+</script>
+
+</body>
+</html>
